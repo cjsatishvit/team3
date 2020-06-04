@@ -1,0 +1,93 @@
+Function form():
+
+	parameter =12
+	input Veh_type
+	INPUT age_of_veh, engine_eff_score, gear_system, exhaust_system, Breaks, kms_travelled, overall_safety, tyres, windshields, headlights, scarches,seats, containers
+	Array veh_info = [engine_eff_score, gear_system, exhaust_system, Breaks, kms_travelled, overall_safety, tyres, windshields, headlights, scarches,seats, containers] 
+
+	for i in range(parameter){
+		if veh_info == NULL{
+			throw ERROR 
+		}
+	}
+
+	weights = [0.25,0.21,0.14,0.117,0.11,0.06,0.029,0.021,0.03,0.01,0.012,0.001]
+
+	for ptr in range(parameter){
+
+		veh_var = veh_info[i]
+		wei_var = weights[i]
+
+		scores = Array(veh_var*wei_var) 
+	}
+
+	for i in range(parameter){
+		total_score += scores[i] 
+	}
+	switch(Veh_type.lower){
+
+		case 'car' {
+			if age_of_veh < 10{
+				dec = 0.0
+		}
+			else if age_of_veh is between 10 and 20{
+				dec = 1.0
+		}
+			else{
+				dec = 1.75
+		}	
+		}
+		break;
+
+		case 'bike' {
+			if age_of_veh < 10{
+				dec = 0.5
+		}
+			else if age_of_veh is between 10 and 20{
+				dec = 1.15
+		}
+			else{
+				dec = 2.0
+		}}
+		break;
+	    case 'truck' {
+			if age_of_veh < 10{
+				dec = 0.0
+			}
+			else if age_of_veh is between 10 and 20{
+				dec = 0.7
+		}
+			else{
+				dec = 1.5
+		}}}
+
+	final_score = total_score-dec
+	norm = 1 - 1/parameter
+
+	depricated_price = actual_price - actual_price*norm
+
+Function AuctionPrices():
+	INPUT num_of_bidders
+
+	INPUT months_under_bid
+
+	for  i in range(months_under_bid){
+
+		if i == 1{
+			prec = 5
+	}
+
+		perc += 1.5
+	}
+
+	new_price = depricated_price - depricated_price*prec
+
+	//According to Nash's Equilibrium to benefit both parties the number of bidders should also play a role in intital Auction Price
+	if num_of_bidders > 10{
+		initalauc = new_price + new_price/sqrt(num_of_bidders)
+}
+	else{
+		initalauc = new_price
+	}
+
+	
