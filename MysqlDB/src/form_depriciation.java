@@ -332,7 +332,22 @@ public class form_depriciation extends javax.swing.JFrame {
     }//GEN-LAST:event_t3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         try{
+                                                  
+        int wind = Integer.parseInt(t2.getText()) ;
+      int tyr = Integer.parseInt(t3.getText());
+      int eng_eff = Integer.parseInt(t4.getText());
+      int sch = Integer.parseInt(t5.getText());
+      int seats = Integer.parseInt(t6.getText());
+      int g_sys = Integer.parseInt(t7.getText());
+      int ex_sys = Integer.parseInt(t8.getText());
+      int breaks = Integer.parseInt(t9.getText());
+      int headlight = Integer.parseInt(t10.getText());
+      int containers = Integer.parseInt(t11.getText());
+      int air = Integer.parseInt(t12.getText());
+      int kms = Integer.parseInt(t13.getText());
+        if((wind > 0&& wind <10)&&(tyr > 0&& tyr <10)&&(eng_eff > 0&& eng_eff <10)&&(sch > 0&& sch <10)&&(seats > 0&& seats <10)&&(g_sys > 0&& g_sys <10)&&(ex_sys > 0&& ex_sys <10)
+                &&(breaks > 0&& breaks <10)&&(headlight > 0&& headlight <10)&&(containers > 0&& containers <10)&&(air > 0&& air <10)&&(kms > 0&& kms <10)){ 
+        try{
              
              Class.forName("com.mysql.cj.jdbc.Driver");
              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/form_data?useTimezone=true&serverTimezone=UTC", "root", "");
@@ -365,7 +380,12 @@ public class form_depriciation extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,ex);
          }
          
+        }
+        else{
+        
+        JOptionPane.showMessageDialog(null,"Enter Correct Values");}
          
+    }
          
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -387,6 +407,21 @@ public class form_depriciation extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+                                                 
+        int wind = Integer.parseInt(t2.getText()) ;
+      int tyr = Integer.parseInt(t3.getText());
+      int eng_eff = Integer.parseInt(t4.getText());
+      int sch = Integer.parseInt(t5.getText());
+      int seats = Integer.parseInt(t6.getText());
+      int g_sys = Integer.parseInt(t7.getText());
+      int ex_sys = Integer.parseInt(t8.getText());
+      int breaks = Integer.parseInt(t9.getText());
+      int headlight = Integer.parseInt(t10.getText());
+      int containers = Integer.parseInt(t11.getText());
+      int air = Integer.parseInt(t12.getText());
+      int kms = Integer.parseInt(t13.getText());
+        if((wind > 0&& wind <10)&&(tyr > 0&& tyr <10)&&(eng_eff > 0&& eng_eff <10)&&(sch > 0&& sch <10)&&(seats > 0&& seats <10)&&(g_sys > 0&& g_sys <10)&&(ex_sys > 0&& ex_sys <10)
+                &&(breaks > 0&& breaks <10)&&(headlight > 0&& headlight <10)&&(containers > 0&& containers <10)&&(air > 0&& air <10)&&(kms > 0&& kms <10)){
         try{
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/form_data?useTimezone=true&serverTimezone=UTC", "root", "");
         String x = t1.getText();
@@ -421,6 +456,9 @@ public class form_depriciation extends javax.swing.JFrame {
         }
         }
         catch(Exception e){}
+        }else{
+            JOptionPane.showMessageDialog(null, "Enter Correct Values");
+        }
         
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
