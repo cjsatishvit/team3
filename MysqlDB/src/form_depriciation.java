@@ -367,7 +367,7 @@ public class form_depriciation extends javax.swing.JFrame {
              pst.setString(12, t12.getText());
              pst.setString(13, t13.getText());
              pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Sucess");
+            JOptionPane.showMessageDialog(null,"Entry has been added");
             
              
              
@@ -376,8 +376,13 @@ public class form_depriciation extends javax.swing.JFrame {
                 
              
          }catch(Exception ex){
-             
+             if(ExceptionUtilService.isSqlDuplicatedKey(ex)){
+		     JOptionPane.showMessageDialog(null,"Already Exists");
+	     }
+		else{
             JOptionPane.showMessageDialog(null,ex);
+		}
+		
          }
          
         }
@@ -396,10 +401,15 @@ public class form_depriciation extends javax.swing.JFrame {
              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/form_data?useTimezone=true&serverTimezone=UTC", "root", "");
              String que = "INSERT INTO depri (veh_id,dep_price) values (?,?)";
              PreparedStatement pat = con.prepareStatement(que);
+		if(t14.getText() is null){
+			JOptionPane.showMessageDialog(null,"Not a Valid Entry");
+		}
+		else{
              pat.setString(1, t1.getText());
              pat.setString(2, t14.getText());
              pat.executeUpdate();
              JOptionPane.showMessageDialog(null,"Sucess");
+		}
         }catch(HeadlessException | ClassNotFoundException | SQLException e){
         JOptionPane.showMessageDialog(null,e);
         }
@@ -408,20 +418,7 @@ public class form_depriciation extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
                                                  
-        int wind = Integer.parseInt(t2.getText()) ;
-      int tyr = Integer.parseInt(t3.getText());
-      int eng_eff = Integer.parseInt(t4.getText());
-      int sch = Integer.parseInt(t5.getText());
-      int seats = Integer.parseInt(t6.getText());
-      int g_sys = Integer.parseInt(t7.getText());
-      int ex_sys = Integer.parseInt(t8.getText());
-      int breaks = Integer.parseInt(t9.getText());
-      int headlight = Integer.parseInt(t10.getText());
-      int containers = Integer.parseInt(t11.getText());
-      int air = Integer.parseInt(t12.getText());
-      int kms = Integer.parseInt(t13.getText());
-        if((wind > 0&& wind <10)&&(tyr > 0&& tyr <10)&&(eng_eff > 0&& eng_eff <10)&&(sch > 0&& sch <10)&&(seats > 0&& seats <10)&&(g_sys > 0&& g_sys <10)&&(ex_sys > 0&& ex_sys <10)
-                &&(breaks > 0&& breaks <10)&&(headlight > 0&& headlight <10)&&(containers > 0&& containers <10)&&(air > 0&& air <10)&&(kms > 0&& kms <10)){
+       
         try{
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/form_data?useTimezone=true&serverTimezone=UTC", "root", "");
         String x = t1.getText();
@@ -431,6 +428,7 @@ public class form_depriciation extends javax.swing.JFrame {
         
         if(rs.next()){
           if(rs.getString("veh_id").equals(t1.getText())){
+		   JOptionPane.showMessageDialog(null,"Form is Editable");
               t2.setEditable(true);
               t3.setEditable(true);
               t4.setEditable(true);
@@ -455,10 +453,10 @@ public class form_depriciation extends javax.swing.JFrame {
         
         }
         }
-        catch(Exception e){}
-        }else{
-            JOptionPane.showMessageDialog(null, "Enter Correct Values");
-        }
+        catch(Exception e){
+	
+	JOptionPane.showMessageDialog(null,e);}
+        
         
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
