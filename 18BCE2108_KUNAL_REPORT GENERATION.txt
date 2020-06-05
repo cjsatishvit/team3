@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>J-Component-Project</title>
+	
+
+	<style>
+		body{background-color:tan}
+	</style>
+</head>
+<body>
+	
+	<h1><b>DEPRECIATION AMOUNT CALCULATOR</b></h1>
+    <h1 id="id1"></h1>
+  	<h1 id="id2"></h1>
+  	<h1 id="id3"></h1>
+  	<h1 id="id4"></h1>
+  	<h1 id="id5"></h1>
+  	<h1 id="id6"></h1>
+  	<h1 id="id7"></h1>
+  	<h1 id="id8"></h1>
+  	<h1 id="id9"></h1>
+  	<h1 id="id10"></h1>
+  	<h1 id="id11"></h1>
+  	<h1 id="id12"></h1>
+  	<h1 id="id13"></h1>
+  	<h1 id="id14"></h1>
+</body>
+    
+	<script>
+		alert("hi")
+		var first_name=prompt("Please enter the First name Of the Loan Taker","");
+		var last_name=prompt("Please enter the last name of the Loan Taker","");
+		var contact=prompt("Please enter the contact of the Loan Taker.","");
+		var E_mail=prompt("Please enter the E-Mail of the Loan taker.","");
+		var Account_number=prompt("Please enter the Account number of the loan taker.","");
+		var Aadhar_ID=prompt("Please enter the Aadhar ID of the Loan Taker","");
+		var vehicle_number=prompt("Please enter the vehicle number.","");
+		var auction_date=prompt("Please enter the Date of the Auction.","");
+		var assetNum=prompt("Please enter the asset number","");
+		var purchPrice=prompt("Please enter the Initial Purchase amount.","");
+		var usefulLife=prompt("Please enter the Useful life of the Vehicle.","");
+		var AuctionVal=prompt("Please enter the Auctioned value of the vehicle.","");
+		var numYears=prompt("Please enter the depreciation years of the vehicle.","");
+		
+		
+		sŚ
+		Account_number = parseFloat(Account_number);
+		Aadhar_ID = parseFloat(Aadhar_ID);
+		vehicle_number = parseFloat(vehicle_number);
+		auction_date = parseFloat(auction_date);
+		assetNum = parseFloat(assetNum);
+		purchPrice = parseFloat(purchPrice);
+		usefulLife = parseFloat(usefulLife);
+		AuctionVal = parseFloat(AuctionVal);
+		numYears = parseFloat(numYears);
+		
+		document.getElementById('id1').innerHTML = 'First Name is: ' + first_name;
+		document.getElementById('id2').innerHTML = 'Last Name is: ' + last_name;
+		document.getElementById('id3').innerHTML = 'Contact of the customer is: ' + contact;
+		document.getElementById('id4').innerHTML = 'E_mail address is: ' + E_mail;
+		document.getElementById('id5').innerHTML = 'Account number is: ' + Account_number;
+		document.getElementById('id6').innerHTML = 'Aadhar number is: ' + Aadhar_ID;
+		document.getElementById('id7').innerHTML = 'Vehicle No. is: ' + vehicle_number;
+		document.getElementById('id8').innerHTML = 'The Auctioned date is: ' + auction_date;
+		document.getElementById('id9').innerHTML = 'Asset years are: ' + assetNum;
+		document.getElementById('id10').innerHTML = 'The original price of the Vehicle is: ' + purchPrice;
+		document.getElementById('id11').innerHTML = 'Useful period of the automobile is: ' + usefulLife;
+		document.getElementById('id12').innerHTML = 'Auctioned value of the automobile is: ' + AuctionVal;
+		document.getElementById('id13').innerHTML = 'Depreciated years to be calculated: ' + numYears;
+
+		ddRate = 1/usefulLife;
+		 var year;
+	    var yearlyDepr;
+	    var accDepr;
+	    var bookVal;
+	    var oldbookVal, oldaccDepr, oldyearlyDepr = 0;
+	    var calcend = false;
+
+    	bookVal = purchPrice;
+    	accDepr = 0;
+    	year = 0;
+    	yearlyDepr = 0;
+    
+   		 while (bookVal >= AuctionVal){
+        
+        oldbookVal= bookVal;
+        oldaccDepr= accDepr;
+        oldyearlyDepr=yearlyDepr;
+        
+        yearlyDepr = (purchPrice-AuctionVal) * (ddRate) ;
+        accDepr = accDepr + yearlyDepr;
+        bookVal = bookVal - yearlyDepr;
+        
+        
+        year++;
+        
+        //System.out.printf("%d %,18.0f %,18.0f %,18.0f%n" , year, yearlyDepr, accDepr, bookVal);
+        document.getElementById('id14').innerHTML= 'year: ' + year + 'Yearly Deprciation: ' + yearlyDepr + 'Acc Deprciation: ' + accDepr + 'Book value: ' + bookVal;
+        
+        if ((year >= numYears) ||  (bookVal == AuctionVal)){
+            break;
+        }
+
+		}
+	</script>
+</html>
