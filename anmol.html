@@ -1,0 +1,24 @@
+<html> 
+<head>  
+<title> 
+ Report on Auto Loans  
+ </title> 
+<style> 
+h1{ background-color: lightblue;} 
+table{border-spacing: 5px;} 
+table,td{border:1px solid black; padding: 5px;} 
+</style>   
+ </head> 
+<body> 
+<h1 align="center" >REPORT ON AUTO LOANS</h1> 
+</br></br> 
+<table bgcolor="black" align="center" width="auto" height="400px"> 
+<tr bgcolor="grey" ><td align="center"><b>Loan ID</b></td><td align="center"><b>Loan Type</b></td><td align="center"><b>Customer Name</b></td></tr> 
+<tr bgcolor="white"><td align="center"><%/*${loan_ID}*/ %></td><td align="center">${Auto_Loan}</td><td align="center"><%/*${name}*/ %></td></tr> 
+<tr bgcolor="grey" ><td align="center"><b>Due Amount</b></td><td align="center"><b>Start Date</b></td><td align="center"><b>End Date</b></td></tr> 
+<tr bgcolor="white"><td align="center"><%/*${amount_due}*/ %></td><td align="center"><%/*${start_date}*/%></td><td align="center"><%/*${End_date}*/ %></td></tr> 
+<tr bgcolor="grey" ><td align="center"><b>Repossessed Vehicle</b></td><td align="center"><b>Auctioned Date</b></td><td align="center"><b>Auctioned Price</b></td></tr> 
+<tr bgcolor="white"><td align="center"><%/*${vehicle}*/ %></td><td align="center"><%/*${auction_date}*/ %></td><td align="center"><%/*${auction_price}*/ %></td></tr> 
+</table> 
+</body> 
+</html> 
